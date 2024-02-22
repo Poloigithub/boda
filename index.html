@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta atrás - 15/05/2024</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #cuenta-atras {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 50px auto;
+    }
+    #dias, #horas, #minutos, #segundos {
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cuenta atrás para el 15/05/2024</h1>
+  <p id="cuenta-atras"></p>
+  <script>
+    // Función para actualizar la cuenta atrás
+    function actualizarCuentaAtras() {
+      // Obtener la fecha actual
+      const ahora = new Date();
+      
+      // Obtener la fecha objetivo
+      const objetivo = new Date("2024-05-15");
+      
+      // Calcular la diferencia en milisegundos
+      const diferencia = objetivo - ahora;
+      
+      // Convertir la diferencia a días, horas, minutos y segundos
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+      
+      // Actualizar el contenido de la cuenta atrás
+      document.getElementById("dias").textContent = dias;
+      document.getElementById("horas").textContent = horas;
+      document.getElementById("minutos").textContent = minutos;
+      document.getElementById("segundos").textContent = segundos;
+    }
+    
+    // Actualizar la cuenta atrás cada segundo
+    setInterval(actualizarCuentaAtras, 1000);
+  </script>
+  <p>
+    <span id="dias">00</span> días
+    <span id="horas">00</span> horas
+    <span id="minutos">00</span> minutos
+    <span id="segundos">00</span> segundos
+  </p>
+</body>
+</html>
